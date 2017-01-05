@@ -1,0 +1,20 @@
+{
+        "name": "fabric-nodejs",
+        "version": "1.0.1",
+        "description": "Node.js fabric",
+        "private": true,
+        "main": "start.js",
+        "dependencies": {
+                "body-parser": "1.15.1",
+                "domhandler": "2.3.0",
+                "domutils": "1.5.1",
+                "express": "4.13.4",
+                "fabric": "^1.7.2",
+                "htmlparser2": "3.9.0",
+                "request": "2.72.0",
+                "morgan": "1.7.0",
+                "jsdom": "9.9.1"
+        },
+        "author": "Sandeep Mogla <sandeep.mogla@gmail.com>",
+        "license": "MIT"
+}
