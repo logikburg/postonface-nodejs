@@ -30,7 +30,7 @@ var f = require('fabric'),
 
         // set the port of our application
         // process.env.PORT lets the port be set by Heroku
-        var port = process.env.PORT || 8080;
+        var PORT = process.env.PORT || 8080;
 
 //var server = http.createServer(function (request, response) {
 //        var params = url.parse(request.url, true);
