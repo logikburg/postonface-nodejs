@@ -27,7 +27,7 @@ var f = require('fabric'),
         // Cufon = global.Cufon = modFabric.Cufon,
         http = require('http'),
         url = require('url'),
-        PORT = 9124;
+        PORT = 80;
 
 //var server = http.createServer(function (request, response) {
 //        var params = url.parse(request.url, true);
