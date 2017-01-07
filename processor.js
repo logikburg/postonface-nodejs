@@ -26,8 +26,11 @@ var f = require('fabric'),
         __fabric = global.fabric = f.fabric,
         // Cufon = global.Cufon = modFabric.Cufon,
         http = require('http'),
-        url = require('url'),
-        PORT = 8080;
+        url = require('url');
+
+        // set the port of our application
+        // process.env.PORT lets the port be set by Heroku
+        var port = process.env.PORT || 8080;
 
 //var server = http.createServer(function (request, response) {
 //        var params = url.parse(request.url, true);
