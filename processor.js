@@ -27,7 +27,7 @@ var f = require('fabric'),
         // Cufon = global.Cufon = modFabric.Cufon,
         http = require('http'),
         url = require('url'),
-        PORT = 80;
+        PORT = 8080;
 
 //var server = http.createServer(function (request, response) {
 //        var params = url.parse(request.url, true);
@@ -193,6 +193,12 @@ apiRoutes.post('/jsonToImage', function (req, res) {
                         res.end();
                 });
         });
+});
+
+apiRoutes.get('/test', function(req, res) {
+  res.json({
+      status: 'OK'
+  });
 });
 
 
