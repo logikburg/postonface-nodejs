@@ -146,17 +146,18 @@ apiRoutes.post('/jsonToImage', function (req, res) {
                 canvas.renderAll();
                 canvas.calcOffset();
 
-                var img = canvas.toDataURL('png');
-			          res.write(img);
-			          res.end();
+                // var img = canvas.toDataURL('png');
+			          // res.write(img);
+			          // res.end();
+                res.writeHead(200, { 'Content-Type': 'image/png' });
 
-                // var stream = canvas.createPNGStream();
-                // stream.on('data', function(imgdata) {
-                //   res.write(imgdata);
-                // });
-                // stream.on('end', function() {
-                //   res.end();
-                // });
+                var stream = canvas.createPNGStream();
+                stream.on('data', function(imgdata) {
+                  res.write(imgdata);
+                });
+                stream.on('end', function() {
+                  res.end();
+                });
 
                 //var stream = canvas.createPNGStream();
                 //var outfile = fs.createWriteStream(__dirname + '/output/temp.png');
