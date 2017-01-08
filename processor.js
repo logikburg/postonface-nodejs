@@ -93,22 +93,6 @@ apiRoutes.post('/jsonToImage', function (req, res) {
 
         canvas.contextContainer.addFont(font); // when using createPNGStream or createJPEGStream
 
-
-        //        var download = function (uri, filename, callback) {
-        //                request.head(uri, function (err, res, body) {
-        //                        console.log('content-type:', res.headers['content-type']);
-        //                        console.log('content-length:', res.headers['content-length']);
-        //                        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-        //                });
-        //        };
-        //
-        //        download('http://localhost:8000/~user/img/image1.jpg', 'test_image.png', function () {
-        //                console.log('done');
-        //        });
-        //
-        //        return;
-
-
         //parseJson = JSON.parse(jsonData);
 
         console.log("request body");
@@ -186,7 +170,7 @@ apiRoutes.post('/jsonToImage', function (req, res) {
         });
 });
 
-apiRoutes.get('/test', function(req, res) {
+apiRoutes.get('/status', function(req, res) {
   res.json({
       status: 'OK'
   });
