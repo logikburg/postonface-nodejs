@@ -32,13 +32,6 @@ var f = require('fabric'),
         // process.env.PORT lets the port be set by Heroku
         var PORT = process.env.PORT || 8080;
 
-//var server = http.createServer(function (request, response) {
-//        var params = url.parse(request.url, true);
-//        serveImage(response, params.query.code, params.query.async);
-//});
-//server.listen(PORT);
-//console.log('Server listening on http://localhost:' + PORT);
-
 __fabric.Object.prototype.originX = __fabric.Object.prototype.originY = 'center';
 
 function serveImage(__response, __code, __async) {
@@ -78,23 +71,6 @@ function serveImage(__response, __code, __async) {
                 });
         }
 }
-
-//async.eachSeries(names, function (name, callback) {
-//        var path = __dirname + '/images/' + name.toLowerCase() + '.png';
-//        var out = fs.createWriteStream(path);
-//
-//        var stream = canvas.createPNGStream();
-//        stream.on('data', function (chunk) {
-//                out.write(chunk);
-//        });
-//
-//        stream.on('end', function () {
-//                callback()
-//        });
-//
-//}, function (err) {
-//        console.log('done!');
-//});
 
 // get an instance of the router for api routes
 var apiRoutes = express.Router();
@@ -187,14 +163,22 @@ apiRoutes.post('/jsonToImage', function (req, res) {
                 canvas.calcOffset();
 
                 var stream = canvas.createPNGStream();
-                var outfile = fs.createWriteStream(__dirname + '/output/temp.png');
-                stream.on('data', function (chunk) {
-                        outfile.write(chunk);
+                stream.on('data', function(imgdata) {
+                  res.write(imgdata);
+                });
+                stream.on('end', function() {
+                  res.end();
                 });
 
-                stream.on('end', function () {
-                        res.end();
-                });
+                //var stream = canvas.createPNGStream();
+                //var outfile = fs.createWriteStream(__dirname + '/output/temp.png');
+                //stream.on('data', function (chunk) {
+                //        outfile.write(chunk);
+                //});
+                //res.end(img, 'binary');
+                //stream.on('end', function () {
+                //        res.end();
+                //});
         });
 });
 
