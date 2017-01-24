@@ -91,7 +91,10 @@ apiRoutes.post('/jsonToImage', function(req, res) {
     font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
     font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'italic');
 
+    var font1 = new canvas.Font('Aldrich', __dirname + '/assets/fonts/TqyqZ92O6-MkXS4JR8sZ6gLUuEpTyoUstqEm5AMlJo4.woff2');
+
     canvas.contextContainer.addFont(font); // when using createPNGStream or createJPEGStream
+    canvas.contextContainer.addFont(font1);
 
     //parseJson = JSON.parse(jsonData);
 
