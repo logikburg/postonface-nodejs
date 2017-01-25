@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var fs = require('fs');
 var async = require('async');
 var request = require('request');
+const path = require('path');
 
 // initialize the express module
 var app = express();
@@ -87,6 +88,7 @@ apiRoutes.post('/jsonToImage', function(req, res) {
 
     var canvas = __fabric.createCanvasForNode(480, 320);
 
+    var path = "";
     var fontArial = new canvas.Font('Arial', path.join(__dirname, '/assets/fonts/Arial.ttf'));
     var fontAclonica = new canvas.Font('Aclonica', path.join(__dirname, '/assets/fonts/Aclonica.ttf'));
 
