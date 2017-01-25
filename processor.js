@@ -87,14 +87,24 @@ apiRoutes.post('/jsonToImage', function(req, res) {
 
     var canvas = __fabric.createCanvasForNode(480, 320);
 
-    var font = new canvas.Font('Arial', __dirname + '/assets/fonts/Arial.ttf');
-    font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
-    font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'italic');
+    var fontArial = new canvas.Font('Arial', path.join(__dirname, '/assets/fonts/Arial.ttf'));
+    var fontAclonica = new canvas.Font('Aclonica', path.join(__dirname, '/assets/fonts/Aclonica.ttf'));
 
-    var font1 = new canvas.Font('Aldrich', __dirname + '/assets/fonts/TqyqZ92O6-MkXS4JR8sZ6gLUuEpTyoUstqEm5AMlJo4.woff2');
+    //font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
+    //font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'italic');
 
-    canvas.contextContainer.addFont(font); // when using createPNGStream or createJPEGStream
-    canvas.contextContainer.addFont(font1);
+    // const fonts = [{
+    //         name: 'Arial',
+    //         src: path.join(__dirname, '/assets/fonts/Arial.ttf')
+    //     },
+    //     {
+    //         name: 'Aclonica',
+    //         src: path.join(__dirname, '/assets/fonts/Aclonica.ttf')
+    //     }
+    // ];
+
+    canvas.contextContainer.addFont(fontArial); // when using createPNGStream or createJPEGStream
+    canvas.contextContainer.addFont(fontAclonica);
 
     //parseJson = JSON.parse(jsonData);
 
@@ -116,8 +126,8 @@ apiRoutes.post('/jsonToImage', function(req, res) {
                 for (var inObj in obj) {
                     if (obj[inObj] == "") {
                         continue;
-                    //} else if (obj[inObj] == true || !obj[inObj] == false) {
-                    //    continue;
+                        //} else if (obj[inObj] == true || !obj[inObj] == false) {
+                        //    continue;
                     } else if (obj[inObj] == "true" || obj[inObj] == "false") {
                         obj[inObj] = (obj[inObj] === "true") ? true : false;
                     } else if (!isNaN(obj[inObj])) {
@@ -131,8 +141,8 @@ apiRoutes.post('/jsonToImage', function(req, res) {
             for (var inprop in objInJson) {
                 if (objInJson[inprop] == "") {
                     continue;
-                //} else if (objInJson[inprop] == true || objInJson[inprop] == false) {
-                //    continue;
+                    //} else if (objInJson[inprop] == true || objInJson[inprop] == false) {
+                    //    continue;
                 } else if (objInJson[inprop] == "true" || objInJson[inprop] == "false") {
                     objInJson[inprop] = (objInJson[inprop] === "true") ? true : false;
                 } else if (!isNaN(objInJson[inprop])) {
