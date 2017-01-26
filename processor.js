@@ -90,22 +90,41 @@ apiRoutes.post('/jsonToImage', function(req, res) {
 
     var fontArial = new canvas.Font('Arial', path.join(__dirname, '/assets/fonts/Arial.ttf'));
     var fontAclonica = new canvas.Font('Aclonica', path.join(__dirname, '/assets/fonts/Aclonica.ttf'));
+    var fontkruti = new canvas.Font('Kruti Dev 010', path.join(__dirname, '/assets/fonts/k010.ttf'));
 
     //font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
     //font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'italic');
 
-    // const fonts = [{
-    //         name: 'Arial',
-    //         src: path.join(__dirname, '/assets/fonts/Arial.ttf')
-    //     },
-    //     {
-    //         name: 'Aclonica',
-    //         src: path.join(__dirname, '/assets/fonts/Aclonica.ttf')
-    //     }
-    // ];
+    const fonts = [{
+            name: 'Arial',
+            src: path.join(__dirname, '/assets/fonts/Arial.ttf')
+        },
+        {
+            name: 'Aclonica',
+            src: path.join(__dirname, '/assets/fonts/Aclonica.ttf')
+        },
+        {
+            name: 'Mangal',
+            src: path.join(__dirname, '/assets/fonts/Mangal.ttf')
+        }
+    ];
 
-    canvas.contextContainer.addFont(fontArial); // when using createPNGStream or createJPEGStream
-    canvas.contextContainer.addFont(fontAclonica);
+    const notFound = [];
+
+    fonts.forEach((font) => {
+        if (!fs.statSync(font.src).isFile()) {
+            notFound.push(font);
+            return;
+        }
+
+        var font = new canvas.Font(font.name, font.src);
+        canvas.contextContainer.addFont(font);
+    });
+
+    // when using createPNGStream or createJPEGStream
+    // canvas.contextContainer.addFont(fontArial);
+    // canvas.contextContainer.addFont(fontAclonica);
+    // canvas.contextContainer.addFont(fontkruti);
 
     //parseJson = JSON.parse(jsonData);
 
