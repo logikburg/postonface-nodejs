@@ -113,9 +113,12 @@ apiRoutes.post('/jsonToImage', function(req, res) {
 
     fonts.forEach((font) => {
         if (!fs.statSync(font.src).isFile()) {
+            console.log("not found font.src : " + font.src);
             notFound.push(font);
             return;
         }
+
+        console.log("font.src : " + font.src);
 
         var font = new canvas.Font(font.name, font.src);
         canvas.contextContainer.addFont(font);
