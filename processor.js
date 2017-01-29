@@ -88,9 +88,9 @@ apiRoutes.post('/jsonToImage', function(req, res) {
 
     var canvas = __fabric.createCanvasForNode(480, 320);
 
-    var fontArial = new canvas.Font('Arial', path.join(__dirname, '/assets/fonts/Arial.ttf'));
-    var fontAclonica = new canvas.Font('Aclonica', path.join(__dirname, '/assets/fonts/Aclonica.ttf'));
-    var fontkruti = new canvas.Font('Kruti Dev 010', path.join(__dirname, '/assets/fonts/k010.ttf'));
+    //var fontArial = new canvas.Font('Arial', path.join(__dirname, '/assets/fonts/Arial.ttf'));
+    //var fontAclonica = new canvas.Font('Aclonica', path.join(__dirname, '/assets/fonts/Aclonica.ttf'));
+    //var fontkruti = new canvas.Font('Kruti Dev 010', path.join(__dirname, '/assets/fonts/k010.ttf'));
 
     //font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
     //font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'italic');
