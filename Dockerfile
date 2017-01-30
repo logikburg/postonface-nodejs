@@ -12,7 +12,7 @@ RUN npm install
 COPY . /usr/src/app
 
 # $PORT is set by Heroku
-EXPOSE $PORT
+EXPOSE 8080
 
 # Run the app.  CMD is required to run on Heroku
-CMD npm processor
+CMD node processor
