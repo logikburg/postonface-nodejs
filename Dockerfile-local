@@ -1,3 +1,4 @@
+#Grab the latest node image
 FROM node:boron
 
 # Create app directory
@@ -11,8 +12,5 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-# $PORT is set by Heroku
-EXPOSE $PORT
-
-# Run the app.  CMD is required to run on Heroku
-CMD npm processor
+EXPOSE 9124
+CMD node processor
